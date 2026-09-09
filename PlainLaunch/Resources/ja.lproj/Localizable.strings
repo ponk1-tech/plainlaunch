@@ -1,0 +1,66 @@
+/* Tabs */
+"tab.home" = "概要";
+"tab.widget" = "Widget";
+"tab.test" = "起動テスト";
+"tab.customize" = "カスタマイズ";
+
+/* Home */
+"home.tagline" = "よく使うアプリだけを、黒背景に白文字で並べるシンプルなWidget。";
+"home.what.title" = "これは何か";
+"home.what.body" = "PlainLaunchは、ホーム画面に配置できるWidgetです。黒背景に白文字でアプリ名やアクション名を並べて表示し、タップすると対応するアプリが開きます。";
+"home.notALauncher.title" = "これは何ではないか";
+"home.notALauncher.body" = "PlainLaunchはホーム画面やiOSそのものを置き換えるものではありません。他のWidgetと同じように、既存のホーム画面に配置して使う一つのWidgetです。";
+"home.privacy.title" = "プライバシー";
+"home.privacy.body" = "PlainLaunchにはアカウントもサーバーもAnalyticsもありません。Widgetの設定はこの端末内（App Group経由でWidgetと共有）にのみ保存され、外部へ送信されることはありません。";
+
+/* Widget guide */
+"guide.title" = "Widgetを追加する";
+"guide.subtitle" = "PlainLaunchはLargeサイズのWidgetとして使うことを想定しています。";
+"guide.step1" = "ホーム画面の何もない場所を長押しし、アイコンが揺れる状態にします。";
+"guide.step2" = "左上（または右上）の＋ボタンをタップします。";
+"guide.step3" = "「PlainLaunch」を検索します。";
+"guide.step4" = "サイズを「Large」に選び、「Widgetを追加」をタップします。";
+"guide.step5" = "「完了」をタップします。以降はWidget上の名前をタップするだけで対応するアプリが開きます。";
+"guide.shortcutsTitle" = "一部の項目にはShortcutが必要です";
+"guide.shortcutsBody" = "iOSの仕組み上、アプリがCameraやSettings、Anker soundcoreのような他社アプリを直接開くことはできません。これらについてはPlainLaunchからShortcutsアプリに依頼し、あらかじめ作成しておいたショートカットを実行する形で起動します。どの項目が対象か、必要なショートカット名は「起動テスト」タブで確認できます。";
+
+/* Test */
+"test.intro" = "名前をタップすると、Widgetをタップした場合と同じ方法で起動を試します。";
+"test.badge.shortcut" = "要Shortcut";
+"test.status.opened" = "直接起動しました。";
+"test.status.shortcutRan" = "Shortcutsに「%@」の実行を依頼しました。何も開かない場合は、このショートカットをまだ作成していません。下記を参照してください。";
+"test.status.shortcutMissing" = "Shortcutsアプリに「%@」の実行を依頼できませんでした。";
+"test.status.unavailable" = "この端末では起動できませんでした。";
+
+/* Customize */
+"customize.items" = "表示項目";
+"customize.layout" = "レイアウト";
+"customize.alignment" = "揃え";
+"customize.alignment.leading" = "左";
+"customize.alignment.center" = "中央";
+"customize.alignment.trailing" = "右";
+"customize.weight" = "太さ";
+"customize.weight.regular" = "Regular";
+"customize.weight.medium" = "Medium";
+"customize.weight.semibold" = "Semibold";
+"customize.weight.bold" = "Bold";
+"customize.fontSize" = "文字サイズ";
+"customize.lineSpacing" = "行間";
+"customize.colors" = "色";
+"customize.textColor" = "文字色";
+"customize.backgroundColor" = "背景色";
+"customize.reset" = "初期設定に戻す";
+
+"common.cancel" = "キャンセル";
+"common.save" = "保存";
+
+/* Shared launch target names (also present in the widget extension's own strings file) */
+"target.phone" = "Phone";
+"target.messages" = "Messages";
+"target.camera" = "Camera";
+"target.music" = "Music";
+"target.podcasts" = "Podcasts";
+"target.soundcore" = "Soundcore";
+"target.settings" = "Settings";
+
+"widget.empty" = "表示項目がありません。PlainLaunchを開いて項目をONにしてください。";

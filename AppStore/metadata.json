@@ -1,0 +1,39 @@
+{
+  "bundleId": "com.ponk1tech.plainlaunch",
+  "sku": "com.ponk1tech.plainlaunch",
+  "primaryLocale": "ja",
+  "categoryPrimary": "UTILITIES",
+  "priceTier": "FREE",
+  "supportUrl": "https://ponk1-tech.github.io/plainlaunch/support.html",
+  "marketingUrl": "https://ponk1-tech.github.io/plainlaunch/",
+  "privacyPolicyUrl": "https://ponk1-tech.github.io/plainlaunch/privacy.html",
+  "reviewContact": {
+    "firstName": "Gun",
+    "lastName": "Kobayashi",
+    "email": "ponk1.tech@gmail.com"
+  },
+  "reviewNotes": {
+    "en": "PlainLaunch is a Home Screen widget utility, not a Home Screen/OS replacement (Guideline 2.5.8 does not apply: the app does not create an alternate desktop environment; it adds one ordinary WidgetKit widget that the user places on their existing Home Screen, exactly like any other widget).\n\nHow to review:\n1. Launch the app. The \"About\" tab explains what it does; the \"Widget\" tab explains how to add the widget (Home Screen > touch-and-hold > + > search \"PlainLaunch\" > Large size).\n2. The \"Test\" tab lets you try every launch target without adding the widget: tap a name (Phone, Messages, Camera, Music, Podcasts, Soundcore, Settings) to see exactly what happens, with a status line explaining the result.\n3. Phone (tel:) and Messages (sms:) open directly. Music and Podcasts open via Universal Links to music.apple.com / podcasts.apple.com.\n4. Camera, Soundcore, and Settings have no public/documented URL scheme in iOS to open them directly (confirmed by Apple's own URL Scheme Reference), so PlainLaunch asks the Shortcuts app to run a user-created shortcut for those three ONLY. This is disclosed in-app (a \"Needs Shortcut\" badge on the Test tab) and does not require any shortcut to already exist for the app itself to function without errors or crashes.\n5. \"Soundcore\" refers to the third-party Anker soundcore app (used with a Soundcore Sleep A30 device). It is not required to be installed for PlainLaunch to work: if the user has no shortcut configured, tapping it simply shows a status message, with no crash.\n6. The \"Customize\" tab lets you enable/disable items, reorder them, rename them, and change alignment/colors/font — this only writes to a local App Group container; nothing is sent anywhere.\n\nPlainLaunch has no account, no login, no server, and no third-party SDKs, so no test credentials are needed.",
+    "ja": "PlainLaunchはホーム画面に配置するWidgetユーティリティであり、ホーム画面やOSそのものを置き換えるものではありません（Guideline 2.5.8には該当しません。代替デスクトップ環境を作成するのではなく、他のWidgetと同様に既存のホーム画面に配置する通常のWidgetKit Widgetを1つ追加するだけです）。\n\n確認方法:\n1. アプリを起動すると、「概要」タブでアプリの内容を、「Widget」タブでWidgetの追加方法（ホーム画面を長押し→＋→「PlainLaunch」を検索→Largeサイズを選択）を確認できます。\n2. Widgetを追加しなくても、「起動テスト」タブから全ての起動先（Phone、Messages、Camera、Music、Podcasts、Soundcore、Settings）を個別にテストでき、結果がステータス表示されます。\n3. Phone（tel:）とMessages（sms:）は直接起動します。MusicとPodcastsはUniversal Link（music.apple.com / podcasts.apple.com）経由で起動します。\n4. Camera、Soundcore、Settingsについては、iOSにこれらを直接開くための公開・文書化されたURL Schemeが存在しないため（Apple公式のURL Scheme Referenceで確認済み）、この3項目に限りShortcutsアプリに依頼してユーザー作成のショートカットを実行します。この点はアプリ内（起動テストタブの「要Shortcut」表示）で明示しており、ショートカットが未作成でもクラッシュやエラーにはなりません。\n5. 「Soundcore」はAnker製の第三者アプリ「Anker soundcore」（Soundcore Sleep A30と併用）を指します。インストールされていなくても動作に支障はなく、ショートカット未設定の場合はステータスメッセージが表示されるだけです。\n6. 「カスタマイズ」タブでは表示項目のON/OFF・並び替え・名称変更・配置/色/フォントの変更が可能ですが、変更内容は端末内のApp Groupにのみ保存され、外部には送信されません。\n\nPlainLaunchにはアカウント・ログイン・サーバー・第三者SDKが一切ないため、テスト用アカウントは不要です。"
+  },
+  "whatsNew": {
+    "en": "Initial release.",
+    "ja": "初回リリースです。"
+  },
+  "locales": {
+    "en-US": {
+      "name": "PlainLaunch",
+      "subtitle": "Plain text widget for apps",
+      "promotionalText": "A calm, text-only widget for the handful of apps you actually use.",
+      "description": "PlainLaunch adds one Home Screen widget: a short list of app names in plain white text on a black background. No icons, no clutter, no folders to dig through — tap a name and PlainLaunch opens that app.\n\nIt's built for a simpler phone, not a different one. PlainLaunch does not replace your Home Screen or iOS — it's a widget you place on your existing Home Screen, the same way you'd place any other widget.\n\nWHAT IT OPENS\nPhone, Messages, Camera, Music, Podcasts, Anker soundcore, and Settings — plus any app or shortcut you set up with Shortcuts. Most of these open directly. A few (Camera, Soundcore, Settings) have no public way for any app to open them directly on iOS, so PlainLaunch asks the Shortcuts app to run a shortcut you create once — the in-app Test tab tells you exactly which ones and walks you through it.\n\nCUSTOMIZE\nChoose which items show, reorder them, rename them, and set alignment, text size, weight, line spacing, and colors. Everything updates the widget live.\n\nPRIVACY\nNo account, no server, no analytics, no ads, no tracking. Your widget settings stay on your device.",
+      "keywords": "widget,minimal,launcher,text,home screen,simple,declutter,shortcuts,plain,dumb phone"
+    },
+    "ja": {
+      "name": "PlainLaunch",
+      "subtitle": "文字だけのシンプルなWidget",
+      "promotionalText": "よく使うアプリだけを、文字だけで並べる落ち着いたWidget。",
+      "description": "PlainLaunchは、ホーム画面に配置する1つのWidgetを追加します。黒背景に白文字で、アプリ名を短く並べるだけ。アイコンも装飾もフォルダを探す手間もなく、名前をタップするだけで対応するアプリが開きます。\n\n目指しているのは「別のスマホ」ではなく「もっとシンプルなスマホ」です。PlainLaunchはホーム画面やiOSそのものを置き換えるものではありません。他のWidgetと同じように、今お使いのホーム画面に配置して使う一つのWidgetです。\n\n起動できるもの\nPhone、Messages、Camera、Music、Podcasts、Anker soundcore、Settings、そしてShortcutsで設定した任意のアプリやアクション。ほとんどは直接起動します。一部（Camera、Soundcore、Settings）はiOS上でどのアプリからも直接開く公式な方法が存在しないため、あらかじめ作成しておいたショートカットをShortcutsアプリに依頼して実行します。どの項目が対象かはアプリ内の「起動テスト」タブで確認・設定できます。\n\nカスタマイズ\n表示する項目の選択、並び替え、名前の変更、揃え・文字サイズ・太さ・行間・色の変更ができ、Widgetにすぐ反映されます。\n\nプライバシー\nアカウント・サーバー・Analytics・広告・トラッキングは一切ありません。Widgetの設定は端末内にのみ保存されます。",
+      "keywords": "widget,ミニマル,ランチャー,テキスト,ホーム画面,シンプル,断捨離,ショートカット,ダムフォン,黒背景"
+    }
+  }
+}

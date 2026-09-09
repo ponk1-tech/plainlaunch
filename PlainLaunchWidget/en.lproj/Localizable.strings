@@ -1,0 +1,12 @@
+"target.phone" = "Phone";
+"target.messages" = "Messages";
+"target.camera" = "Camera";
+"target.music" = "Music";
+"target.podcasts" = "Podcasts";
+"target.soundcore" = "Soundcore";
+"target.settings" = "Settings";
+
+"widget.empty" = "No items enabled. Open PlainLaunch to turn some on.";
+
+"widget.displayName" = "PlainLaunch";
+"widget.description" = "A plain black-and-white list of the apps you choose. Tap a name to open it.";

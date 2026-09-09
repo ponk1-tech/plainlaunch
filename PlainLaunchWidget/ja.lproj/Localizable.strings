@@ -1,0 +1,12 @@
+"target.phone" = "Phone";
+"target.messages" = "Messages";
+"target.camera" = "Camera";
+"target.music" = "Music";
+"target.podcasts" = "Podcasts";
+"target.soundcore" = "Soundcore";
+"target.settings" = "Settings";
+
+"widget.empty" = "表示項目がありません。PlainLaunchを開いて項目をONにしてください。";
+
+"widget.displayName" = "PlainLaunch";
+"widget.description" = "選んだアプリ名だけを黒背景・白文字で並べるWidgetです。タップすると起動します。";

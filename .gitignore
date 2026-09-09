@@ -1,0 +1,35 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# XcodeGen-generated project (regenerate with `xcodegen generate`)
+*.xcodeproj/
+
+# macOS
+.DS_Store
+
+# Secrets / credentials — never commit
+*.p8
+.env
+.env.*
+!.env.example
+fastlane/api_key.json
+**/AuthKey_*.p8
+ASC_PRIVATE_KEY_PATH*
+*.mobileprovision
+*.p12
+*.cer
+
+# Fastlane (unused, but ignore if ever introduced)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Generated screenshots (large binaries; regenerate via scripts/screenshots.sh)
+AppStore/screenshots/**/*.png

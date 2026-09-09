@@ -1,0 +1,66 @@
+/* Tabs */
+"tab.home" = "About";
+"tab.widget" = "Widget";
+"tab.test" = "Test";
+"tab.customize" = "Customize";
+
+/* Home */
+"home.tagline" = "A plain, text-only widget for the apps you actually use.";
+"home.what.title" = "What this is";
+"home.what.body" = "PlainLaunch adds a Home Screen widget that lists the names of a few apps or actions in plain white text on a black background. Tap a name to open that app.";
+"home.notALauncher.title" = "What this is not";
+"home.notALauncher.body" = "PlainLaunch does not replace your Home Screen or iOS itself. It's a widget you place on your existing Home Screen, like any other widget.";
+"home.privacy.title" = "Privacy";
+"home.privacy.body" = "PlainLaunch has no account, no server, and no analytics. Your widget settings are stored only on this device (and shared with the widget via an App Group), never sent anywhere.";
+
+/* Widget guide */
+"guide.title" = "Add the widget";
+"guide.subtitle" = "PlainLaunch works best as a Large widget on your Home Screen.";
+"guide.step1" = "Touch and hold an empty area of your Home Screen until the icons jiggle.";
+"guide.step2" = "Tap the + button in the top corner.";
+"guide.step3" = "Search for “PlainLaunch”.";
+"guide.step4" = "Choose the Large size, then tap “Add Widget”.";
+"guide.step5" = "Tap Done. You can now tap any name on the widget to open that app.";
+"guide.shortcutsTitle" = "Some entries need a Shortcut";
+"guide.shortcutsBody" = "iOS doesn't let apps open Camera, Settings, or third-party apps like Soundcore directly. For those, PlainLaunch asks the Shortcuts app to run a small shortcut you create once. See the Test tab for exactly which ones, and the Shortcut names to use.";
+
+/* Test */
+"test.intro" = "Tap a name to try opening it, the same way the widget does.";
+"test.badge.shortcut" = "Needs Shortcut";
+"test.status.opened" = "Opened directly.";
+"test.status.shortcutRan" = "Asked Shortcuts to run “%@”. If nothing opened, you need to create that shortcut — see below.";
+"test.status.shortcutMissing" = "Couldn't reach the Shortcuts app to run “%@”.";
+"test.status.unavailable" = "This couldn't be opened on this device.";
+
+/* Customize */
+"customize.items" = "Items";
+"customize.layout" = "Layout";
+"customize.alignment" = "Alignment";
+"customize.alignment.leading" = "Left";
+"customize.alignment.center" = "Center";
+"customize.alignment.trailing" = "Right";
+"customize.weight" = "Weight";
+"customize.weight.regular" = "Regular";
+"customize.weight.medium" = "Medium";
+"customize.weight.semibold" = "Semibold";
+"customize.weight.bold" = "Bold";
+"customize.fontSize" = "Font Size";
+"customize.lineSpacing" = "Line Spacing";
+"customize.colors" = "Colors";
+"customize.textColor" = "Text Color";
+"customize.backgroundColor" = "Background Color";
+"customize.reset" = "Reset to Defaults";
+
+"common.cancel" = "Cancel";
+"common.save" = "Save";
+
+/* Shared launch target names (also present in the widget extension's own strings file) */
+"target.phone" = "Phone";
+"target.messages" = "Messages";
+"target.camera" = "Camera";
+"target.music" = "Music";
+"target.podcasts" = "Podcasts";
+"target.soundcore" = "Soundcore";
+"target.settings" = "Settings";
+
+"widget.empty" = "No items enabled. Open PlainLaunch to turn some on.";

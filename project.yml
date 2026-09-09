@@ -1,0 +1,102 @@
+name: PlainLaunch
+options:
+  bundleIdPrefix: com.ponk1tech
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+  developmentLanguage: ja
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    DEVELOPMENT_TEAM: "4YX4L8D7YW"
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "1.0.0"
+    # Auto-incrementing build number. `make` targets export PLAINLAUNCH_BUILD_NUMBER (from `git
+    # rev-list --count HEAD`) before invoking xcodebuild; Xcode's own `$(VAR:default=x)` build
+    # setting syntax (resolved at build time, not by XcodeGen) supplies 1 when it's unset, e.g.
+    # for a plain `xcodebuild` invocation outside the Makefile.
+    CURRENT_PROJECT_VERSION: "$(PLAINLAUNCH_BUILD_NUMBER:default=1)"
+    ENABLE_PREVIEWS: YES
+    SUPPORTS_MACCATALYST: NO
+    SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+
+packages: {}
+
+targets:
+  PlainLaunch:
+    type: application
+    platform: iOS
+    sources:
+      - path: PlainLaunch
+      - path: Shared
+    resources:
+      - path: PlainLaunch/Resources/Assets.xcassets
+      - path: PlainLaunch/Resources/en.lproj
+      - path: PlainLaunch/Resources/ja.lproj
+      - path: PlainLaunch/PrivacyInfo.xcprivacy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ponk1tech.plainlaunch
+        PRODUCT_NAME: PlainLaunch
+        INFOPLIST_FILE: PlainLaunch/Info.plist
+        CODE_SIGN_ENTITLEMENTS: PlainLaunch/PlainLaunch.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: NO
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_EMIT_LOC_STRINGS: YES
+    entitlements:
+      path: PlainLaunch/PlainLaunch.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.ponk1tech.plainlaunch
+    dependencies:
+      - target: PlainLaunchWidgetExtension
+        embed: true
+    scheme:
+      testTargets:
+        - PlainLaunchTests
+      commandLineArguments:
+        "-com.apple.CoreData.ConcurrencyDebug 1": false
+      environmentVariables: {}
+
+  PlainLaunchWidgetExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: PlainLaunchWidget
+      - path: Shared
+    resources:
+      - path: PlainLaunchWidget/en.lproj
+      - path: PlainLaunchWidget/ja.lproj
+      - path: PlainLaunchWidget/PrivacyInfo.xcprivacy
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ponk1tech.plainlaunch.Widget
+        PRODUCT_NAME: PlainLaunchWidgetExtension
+        INFOPLIST_FILE: PlainLaunchWidget/Info.plist
+        CODE_SIGN_ENTITLEMENTS: PlainLaunchWidget/PlainLaunchWidget.entitlements
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_EMIT_LOC_STRINGS: YES
+        SKIP_INSTALL: YES
+    entitlements:
+      path: PlainLaunchWidget/PlainLaunchWidget.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.ponk1tech.plainlaunch
+
+  PlainLaunchTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: PlainLaunchTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ponk1tech.plainlaunch.Tests
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: PlainLaunch
+
+schemes: {}
