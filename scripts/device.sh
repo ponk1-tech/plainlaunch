@@ -32,13 +32,18 @@ EOF
 
 echo "    -> device UDID: $UDID"
 
+: "${ASC_KEY_ID:?Set ASC_KEY_ID (see README)}"
+: "${ASC_ISSUER_ID:?Set ASC_ISSUER_ID (see README)}"
+: "${ASC_PRIVATE_KEY_PATH:?Set ASC_PRIVATE_KEY_PATH (see README)}"
+./scripts/provisioning.sh
+
 echo "==> xcodegen generate"
 xcodegen generate >/dev/null
 
-echo "==> Building (Debug, -allowProvisioningUpdates)"
+echo "==> Building (Debug, manual signing — see scripts/provisioning.sh for why)"
 set +e
 BUILD_LOG=$(xcodebuild -project PlainLaunch.xcodeproj -scheme PlainLaunch \
-  -destination "id=$UDID" -configuration Debug -allowProvisioningUpdates build 2>&1)
+  -destination "id=$UDID" -configuration Debug build 2>&1)
 BUILD_STATUS=$?
 set -e
 echo "$BUILD_LOG" | grep -E "error:|BUILD SUCCEEDED|BUILD FAILED|could not be mounted|Developer Mode|not paired|trust" || true

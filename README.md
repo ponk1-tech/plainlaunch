@@ -91,9 +91,11 @@ Or open `PlainLaunch.xcodeproj` in Xcode after `xcodegen generate`.
 ./scripts/device.sh logs      # stream console logs
 ```
 
-The script auto-detects the connected device via `xcrun devicectl` and uses
-`-authenticationKeyPath`/`-authenticationKeyID`/`-authenticationKeyIssuerID` (the App Store
-Connect API key — see below) for automatic signing, so no Xcode-signed-in Apple ID is required.
+The script auto-detects the connected device via `xcrun devicectl`, then runs
+`scripts/provisioning.sh`, which creates a Development certificate + provisioning profiles
+directly via the App Store Connect API (no Xcode-signed-in Apple ID required) — see
+`docs/release.md` "Known issue" for why this goes through the API directly rather than Xcode's
+own automatic-signing flow.
 
 If the device shows `The developer disk image could not be mounted`, that's iOS asking for a
 one-time human step, not a build problem: connect the iPhone via **USB** (not just Wi-Fi),
@@ -218,6 +220,13 @@ managing users or legal agreements) that a broader role would carry.
 - **App Privacy ("Data Not Collected") does not appear in the App Store Connect API's app
   relationships either** (confirmed live against an existing app in the same account) — it's a
   web-UI-only declaration/publish step, done once per version.
+- **The App Group identifier itself has no API endpoint** (`GET /v1/appGroups` → `404`, confirmed
+  live) — only the bundle ID's `APP_GROUPS` *capability flag* is API-manageable. Registering
+  `group.com.ponk1tech.plainlaunch` is a one-time manual step; see `docs/release.md` step 2.
+- **Xcode's automatic-signing flow (`-allowProvisioningUpdates -authenticationKeyPath`) fails on
+  this account** with an authentication error, even though the same key works for every other
+  App Store Connect API call. Worked around with manual signing via certificates/profiles created
+  directly through the public API — see `docs/release.md` "Known issue".
 - Camera, Soundcore, and Settings cannot be opened directly by any app on iOS — this is a
   platform constraint, not a gap in PlainLaunch. See "Launch methods per target" above.
 - `Shared/ExperimentalLaunchMethod.swift` documents undocumented schemes some other apps use

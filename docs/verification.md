@@ -37,6 +37,13 @@ on-device pass above. `g's iPhone16e` is paired but shows `connected (no DDI)` /
 `The developer disk image could not be mounted on this device` via `xcrun devicectl` — this is
 iOS asking for a fresh USB connection + unlock + Trust This Computer + Developer Mode check, not
 a build issue (`scripts/device.sh` detects this exact condition and prints the same guidance).
+
+Separately, `group.com.ponk1tech.plainlaunch` (the App Group identifier) still needs a one-time
+manual registration — see `docs/release.md` step 2 — before either a device install or a Release
+archive will successfully sign, since both entitlements files reference it. Everything else
+(certificates, provisioning profiles, manual signing, build numbering) is already working and
+verified via `scripts/provisioning.sh` and `scripts/archive.sh` (confirmed live: archive gets all
+the way to the code-signing step and fails on exactly this one missing App Group, nothing else).
 The project's actual target device, an iPhone 8, was not connected at all during this session.
 
 Once a device (ideally the iPhone 8) is connected and unlocked:
