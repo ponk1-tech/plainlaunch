@@ -181,6 +181,7 @@ after). Short version:
 ```sh
 make icon           # regenerate the App Icon (tools/AppIcon/generate_icon.py)
 make screenshots     # capture App Store screenshots (ja + en) via Simulator
+make screenshots-upload  # push them to App Store Connect via the API
 make archive         # Release archive + .ipa export
 make validate        # validate the .ipa with the App Store Connect API
 make upload          # upload it

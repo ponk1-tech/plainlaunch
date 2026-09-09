@@ -8,7 +8,7 @@ BUILD_NUMBER := $(shell git rev-list --count HEAD 2>/dev/null || echo 1)
 export PLAINLAUNCH_BUILD_NUMBER := $(BUILD_NUMBER)
 
 .PHONY: help generate build test archive validate upload testflight metadata submit \
-        screenshots icon clean device-build device-install
+        screenshots screenshots-upload icon clean device-build device-install
 
 help:
 	@echo "PlainLaunch release commands (build number: $(BUILD_NUMBER))"
@@ -19,6 +19,7 @@ help:
 	@echo "  make device-build   Debug build + install on the connected device (see scripts/device.sh)"
 	@echo "  make icon           Regenerate the App Icon (tools/AppIcon/generate_icon.py)"
 	@echo "  make screenshots    Capture App Store screenshots (ja + en)"
+	@echo "  make screenshots-upload  Upload them to App Store Connect via the API"
 	@echo "  make archive        Release archive + .ipa export (scripts/archive.sh)"
 	@echo "  make validate       Validate the exported .ipa with the App Store Connect API"
 	@echo "  make upload         Upload the exported .ipa to App Store Connect"
@@ -48,6 +49,9 @@ icon:
 
 screenshots:
 	./scripts/screenshots.sh
+
+screenshots-upload:
+	node scripts/asc_screenshots.js
 
 archive: generate
 	./scripts/archive.sh

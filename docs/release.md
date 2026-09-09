@@ -50,11 +50,13 @@ in the loop. Everything else in this document is scripted.
    **No** → **Publish**. PlainLaunch collects nothing, so this is accurate as written (see
    `docs/privacy.html`).
 
-8. **Screenshots** — `make screenshots` generates them locally; upload the ones in
-   `AppStore/screenshots/{ja,en}/` to the matching localizations in App Store Connect → App
-   Store tab → 1.0.0 → the API has no endpoint to upload screenshot binaries as of this writing,
-   only to attach existing screenshot-set metadata, so this one upload step is a short manual
-   pass (drag the 4 PNGs per locale into the 6.9" slot; Apple scales them down automatically).
+8. **Screenshots** — `make screenshots` captures them locally, `make screenshots-upload` pushes
+   them to App Store Connect via the API (`appScreenshotSets`/`appScreenshots`: reserve → upload
+   to the returned S3 URL → commit — the same pattern used for build uploads). Apple's public
+   `ScreenshotDisplayType` enum documentation was inconsistent about the newer 6.9" value as of
+   this writing, so the script tries a short candidate list (`APP_IPHONE_69`, `APP_IPHONE_67`,
+   `APP_IPHONE_65`) and uses whichever the API accepts — check its output the first time you run
+   it.
 
 9. `make submit` — attaches the processed build to the 1.0.0 version and creates the App Store
    review submission via the API.
