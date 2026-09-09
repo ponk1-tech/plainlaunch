@@ -165,8 +165,10 @@ Covers `DeepLinkParser`, `LaunchCatalog` (including the "no private schemes" gua
 ## Privacy
 
 No account, no server, no analytics, no ads, no tracking, no third-party SDKs. The only thing
-PlainLaunch stores is your widget settings, in a local App Group container — see
-[`docs/privacy.html`](docs/privacy.html) for the published policy and
+PlainLaunch stores is your widget settings, in a local App Group container — see the published
+[Privacy Policy](https://ponk1-tech.com/plainlaunch/privacy.html) /
+[Support page](https://ponk1-tech.com/plainlaunch/support.html) (source: `docs/`, served via
+GitHub Pages) and
 `PlainLaunch/PrivacyInfo.xcprivacy` / `PlainLaunchWidget/PrivacyInfo.xcprivacy` for the Required
 Reason API declaration (`NSPrivacyAccessedAPICategoryUserDefaults`, reason `CA92.1` — reading/
 writing App Group-shared UserDefaults).
