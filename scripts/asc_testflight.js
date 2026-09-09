@@ -44,7 +44,9 @@ async function main() {
   }
   console.log(`Build ${build.id} (version ${build.attributes.version}) is VALID.`);
 
-  const groups = await api.get(`/apps/${app.id}/betaGroups?filter[isInternalGroup]=true`);
+  // Top-level /v1/betaGroups (not the nested /apps/{id}/betaGroups path) — the nested path
+  // rejects filter[isInternalGroup] (confirmed live: PARAMETER_ERROR.ILLEGAL).
+  const groups = await api.get(`/betaGroups?filter[app]=${app.id}&filter[isInternalGroup]=true`);
   api.assertOk(groups, 'listing internal beta groups');
   const internalGroup = groups.body.data[0];
   if (!internalGroup) {

@@ -10,22 +10,27 @@
 
 const { loadMetadata, findAppOrExit, api } = require('./asc_common');
 
-async function findOrCreate(basePath, filterQuery, createBody, updateAttributes) {
-  const list = await api.get(`${basePath}?${filterQuery}`);
+// Both appInfoLocalizations and appStoreVersionLocalizations reject GET_COLLECTION on their
+// top-level, filtered list endpoint (confirmed live: 403 FORBIDDEN_ERROR, "Allowed operations
+// are: CREATE, DELETE, GET_INSTANCE, UPDATE") — only their *parent's* nested relationship list
+// (e.g. `/appInfos/{id}/appInfoLocalizations`) is readable. So: list unfiltered from the parent,
+// match the locale client-side, then PATCH by id or POST a new one.
+async function findOrCreate(basePath, createPath, locale, createBody, updateAttributes) {
+  const list = await api.get(basePath);
   api.assertOk(list, `listing ${basePath}`);
-  const existing = list.body.data[0];
+  const existing = list.body.data.find((item) => item.attributes.locale === locale);
   if (existing) {
     if (Object.keys(updateAttributes).length > 0) {
-      const patched = await api.patch(`${basePath}/${existing.id}`, {
+      const patched = await api.patch(`${createPath}/${existing.id}`, {
         data: { type: existing.type, id: existing.id, attributes: updateAttributes },
       });
-      api.assertOk(patched, `updating ${basePath}/${existing.id}`);
+      api.assertOk(patched, `updating ${createPath}/${existing.id}`);
       return patched.body.data;
     }
     return existing;
   }
-  const created = await api.post(basePath, createBody);
-  api.assertOk(created, `creating in ${basePath}`);
+  const created = await api.post(createPath, createBody);
+  api.assertOk(created, `creating in ${createPath}`);
   return created.body.data;
 }
 
@@ -47,8 +52,9 @@ async function main() {
   for (const [locale, content] of Object.entries(meta.locales)) {
     console.log(`-- appInfoLocalizations [${locale}]`);
     await findOrCreate(
+      `/appInfos/${appInfo.id}/appInfoLocalizations`,
       '/appInfoLocalizations',
-      `filter[appInfo]=${appInfo.id}&filter[locale]=${locale}`,
+      locale,
       {
         data: {
           type: 'appInfoLocalizations',
@@ -126,8 +132,9 @@ async function main() {
       marketingUrl: meta.marketingUrl,
     };
     await findOrCreate(
+      `/appStoreVersions/${version.id}/appStoreVersionLocalizations`,
       '/appStoreVersionLocalizations',
-      `filter[appStoreVersion]=${version.id}&filter[locale]=${locale}`,
+      locale,
       {
         data: {
           type: 'appStoreVersionLocalizations',

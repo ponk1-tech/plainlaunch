@@ -18,7 +18,9 @@ async function main() {
     process.exit(1);
   }
 
-  const builds = await api.get(`/apps/${app.id}/builds?filter[processingState]=VALID&sort=-uploadedDate&limit=1`);
+  // Top-level /v1/builds (not the nested /apps/{id}/builds relationship path) — the nested path
+  // rejects the `sort` parameter (confirmed live: PARAMETER_ERROR.ILLEGAL), the top-level one accepts it.
+  const builds = await api.get(`/builds?filter[app]=${app.id}&filter[processingState]=VALID&sort=-uploadedDate&limit=1`);
   api.assertOk(builds, 'listing valid builds');
   const build = builds.body.data[0];
   if (!build) {

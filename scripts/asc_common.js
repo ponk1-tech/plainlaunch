@@ -21,7 +21,7 @@ async function findAppOrExit(bundleId) {
   if (!app) {
     console.error(`No App Store Connect app record found for bundle ID ${bundleId}.`);
     console.error('Create it once at https://appstoreconnect.apple.com/apps (Apps > + > New App), then re-run.');
-    console.error('See README "First app record (one-time, manual)" for the exact values to enter.');
+    console.error('See docs/release.md "First release" step 3 for the exact values to enter.');
     process.exit(1);
   }
   return app;
